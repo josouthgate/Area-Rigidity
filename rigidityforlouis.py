@@ -1,4 +1,4 @@
-def rigmat2(E,P): #I got an error using the matrix_from_rows_and_columns property so I had to improvise the cross product, need to find a way around this for higher dimensions theough
+def rigmat2(E,P): #I got an error using matrix_from_rows_and_columns so I had to improvise the cross product, will fix this for higher dimensions theough
 	n = P.ncols()
 	m = len(E)
 	Prows = P.rows()
@@ -25,7 +25,7 @@ def rigmat2(E,P): #I got an error using the matrix_from_rows_and_columns propert
 		R.append(MatRow)
 	return(matrix(R))
 
-def stressmat2(E,n,stress): # When checking this make sure the matrix of distance vectors is indexed by OneSkel
+def stressmat2(E,n,stress): # OneSkel is returned so we know the indexing of the columns of the stess matrix
 	OneSkel = []	
 	OneSkelReps = []
 	Stress = []
