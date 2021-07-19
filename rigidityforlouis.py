@@ -10,7 +10,7 @@ def rigmat2(E,P): #I got an error using matrix_from_rows_and_columns so I had to
 		for i in range(n):
 			for coord in range(2):
 				if i not in e:
-					e.append(0)
+					MatRow.append(0)
 				else:
 					for projn in range(2):
 						if projn != coord:
@@ -18,7 +18,7 @@ def rigmat2(E,P): #I got an error using matrix_from_rows_and_columns so I had to
 					OppEdge = []
 					for j in e:
 						if j != i:
-							OppEdge.apend(j)
+							OppEdge.append(j)
 					minor = P[L,OppEdge[0]] - P[L,OppEdge[1]]
 					if (coord == 0 and i > OppEdge[0] and i < OppEdge[1]) or (coord == 1 and i < OppEdge[0] and i < OppEdge[1]) or (coord == 1 and i > OppEdge[0] and i > OppEdge[1]):
 						MatRow.append(-minor)
