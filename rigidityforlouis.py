@@ -1,3 +1,5 @@
+# Inputs an edge set E and a configuration matrix P (with bottom row all 1s), outputs the area rigidity matrix
+
 def rigmat2(E,P): #I got an error using matrix_from_rows_and_columns so I had to improvise the cross product, will fix this for higher dimensions theough
 	n = P.ncols()
 	m = len(E)
@@ -24,6 +26,8 @@ def rigmat2(E,P): #I got an error using matrix_from_rows_and_columns so I had to
 						MatRow.append(minor)
 		R.append(MatRow)
 	return(matrix(R))
+
+# Inputs an edge set E, the number of vertices n, and an element stress of the cokernel (kernel in Sage) of the rigidity matrix, outputs the corresponding stress matrix and the one skeleton of the graph
 
 def stressmat2(E,n,stress): # OneSkel is returned so we know the indexing of the columns of the stess matrix
 	OneSkel = []	
@@ -62,6 +66,8 @@ def stressmat2(E,n,stress): # OneSkel is returned so we know the indexing of the
 					MatRow.append(0)
 		Stress.append(MatRow)
 	return([matrix(Stress),OneSkel])
+
+# Inputs the configuration matrix and one skeleton of the graph, outputs the edge-direction matrix
 
 def distmat2(P,OneSkel):
 	s = len(OneSkel)
